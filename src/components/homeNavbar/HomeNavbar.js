@@ -74,12 +74,12 @@ const Navbar = () => {
   return (
     <>
       {/* First section */}
-      <div className=" h-10 bg-dark-purple text-white sticky top-0 z-10" >
+      <div className=" h-10 bg-dark-purple text-white sticky top-0 z-10 hidden md:block" >
             <div className="flex justify-between items-center h-full mx-[4.3rem]">
               <ul className='flex  space-x-1  font-bold text-[0.9rem] h-full'>
                 <li className=' bg-light-white cursor-pointer h-full px-3 pt-[.36rem] mt-2'>Home</li>
                 <li className=' hover:bg-light-white cursor-pointer h-full px-3 pt-[.36rem] mt-2'>Contact</li>
-                <li className=' hover:bg-light-white cursor-pointer h-full px-3 pt-[.36rem] mt-2'>About</li>
+                <li className=' hover:bg-light-white cursor-pointer h-full px-3 pt-[.36rem] mt-2'>Contact</li>
 
               </ul>
               <div className="mx-5">
@@ -101,9 +101,9 @@ const Navbar = () => {
       </div>
 
       {/* Second Section */}
-      <div className="bg-[rgb(16,3,81)] h-10 mb-2">
-        <div className="flex justify-center items-center h-full mx-[4.3rem]">
-          {/* <ul className='flex space-x-6 mt-3 h-full text-[.9rem] font-bold text-white'>
+      <div className="bg-[rgb(16,3,81)] h-10 mb-2 hidden md:block">
+        <div className="flex justify-between items-center h-full mx-[4.3rem]">
+          <ul className='flex space-x-6 mt-3 h-full text-[.9rem] font-bold text-white'>
             <li className='flex items-center space-x-2 hover:bg-light-white px-2' onMouseOver={() => {setMain(true); setFirst(true); setSecond(false); setThird(false); setFourth(false)}}  >
               <span>First</span>
               <AiOutlineDown className={`text-md duration-200 ${first && "rotate-180"}`} />
@@ -123,7 +123,7 @@ const Navbar = () => {
               <span>Fourth</span>
               <AiOutlineDown className={`text-md duration-200 ${fourth && "rotate-180"}`} />
             </li>
-          </ul> */}
+          </ul>
 
           <div className="-ml-64">
             <input 
@@ -137,13 +137,13 @@ const Navbar = () => {
               />
           </div>
 
-          {/* <div className="">
-            <button>Cart</button>
+          <div className="">
+            {/* <button>Cart</button>
             <span>
               <BsFillCartCheckFill />
               <p>5</p>
-            </span>
-          </div> */}
+            </span> */}
+          </div>
 
         </div>
         

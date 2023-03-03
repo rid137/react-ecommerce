@@ -22,6 +22,12 @@ const TopCategory = () => {
         handleClick(eachItem, id)
     }
 
+    const addtopCategoryJewelleryProduct = (e) => {
+        const eachItem = topCategoryJewelleryProduct.find((item) => item.id === +e.target.id)
+        const id = e.target.id
+        handleClick(eachItem, id)
+    }
+
 
     const clipWords = (words) => {
         const word = words.slice(0, 15) + '...'
@@ -106,7 +112,7 @@ const TopCategory = () => {
                                 </div>
                                 <p className="text-2xl font-bold"><span className="line-through pr-2 text-gray-500 text-xl">$1500</span>${item.price}</p>
                                 <div className="flex justify-center">
-                                    <button id={item.id} onClick={addMaleItem} className="text-2xl text-white border-2 border-slate-300 px-3 mr-2 py-1 pb-2 bg-yellow-500 hover:scale-105 transition-all duration-200 rounded-md">Add to cart</button>
+                                    <button id={item.id} onClick={addtopCategoryJewelleryProduct} className="text-2xl text-white border-2 border-slate-300 px-3 mr-2 py-1 pb-2 bg-yellow-500 hover:scale-105 transition-all duration-200 rounded-md">Add to cart</button>
                                     <button className="text-2xl border-2 border-slate-300 px-3 pb-1 bg-yellow-500 hover:scale-105 transition-all duration-200 rounded-md"><Link to={`/product/${item.id}`} className='no-underline text-white'><IoEyeSharp className="text-3xl" /></Link></button>
                                 </div>                                  
                             </div>

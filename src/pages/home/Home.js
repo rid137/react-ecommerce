@@ -8,8 +8,8 @@ const Home = () => {
   return (
     <div className='bg-blue-25'>
         <HomeNavbar />
-        {/* <FixedCartBox /> */}
-        <div className='flex space-x-[6.3rem]'>
+        <FixedCartBox />
+        <div className='flex space-x-[6.3rem] '>
             <Sidebar />
             <MainSection />
         </div>

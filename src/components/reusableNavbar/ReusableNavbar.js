@@ -57,7 +57,7 @@ const ReusableNavbar = () => {
                 <li className=' cursor-pointer   hover:text-gray-300'><Link className="no-underline text-inherit hover:text-gray-200 block" to="related" smooth={true} offset={-300}  duration={500} onClick={() => setOpenNav(!openNav)} >Related Products</Link></li>
                 <li className="w-full h-[.5px] bg-white"></li>
 
-                <li className=' cursor-pointer   hover:text-gray-300'><NavLink className="no-underline text-inherit hover:text-gray-200 block" to="/" onClick={() => setOpenNav(!openNav)} >Cart</NavLink></li>
+                <li className=' cursor-pointer   hover:text-gray-300'><NavLink className="no-underline text-inherit hover:text-gray-200 block" to="/cart" onClick={() => setOpenNav(!openNav)} >Cart</NavLink></li>
                 <li className="w-full h-[.5px] mb-2 bg-white"></li>
 
 

@@ -6,7 +6,7 @@ import caro1 from '../asset/caro1.jpg'
 
 function HeroCarousel() {
     return (
-      <Carousel className='relative'>
+      <Carousel className='relative hidden md:block'>
         <Carousel.Item> 
           <img
             className='w-[1200px] h-[450px]'

@@ -99,7 +99,7 @@ const SingleProductDetails = () => {
                 </div>
             </div>
 
-            <div className="mt-12">
+            <div className="my-12">
                 <h2 name='related' className='text-white font-bold mb-3 text-center mx-8 md:text-left md:mx-0'>Related Products</h2>
                 <div className="flex flex-col items-center md:flex-row md:flex-wrap">
                     {
@@ -111,16 +111,11 @@ const SingleProductDetails = () => {
                                             <img src={item.thumbnail} className='w-full h-full' alt="" />
                                         </div>
                                         <div className="absolute my-rotate-y-180 backface-hidden w-full h-full bg-gray-100 overflow-hidden">
-                                            <div className="text-center flex flex-col items-center justify-center h-full text-gray-700 px-2 pb-24" >
-                                                <h1 className='text-3xl font-semibold'>Lorem ipsum dolor sit</h1>
-                                                <p className="my-2">Lorem ipsum</p>
-                                                <p>
-                                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                                                    Aliquid excepturi sapiente itaque in perferendis cumque expedita 
-                                                    sed eum adipisci hic. Lorem ipsum dolor sit amet consectetur, 
-                                                    adipisicing elit. Architecto, nesciunt.
-                                                </p>
-                                                <button className="bg-teal-500 px-6 py-2 font-semibold text-white rounded-full absolute -bottom-20  delay-500 duration-1000 hover:scale-105 transition-all group-hover:bottom-20 scale-0 group-hover:scale-125">
+                                            <div className="text-center flex flex-col items-center justify-center h-full text-gray-700 md:pt-10 px-2 pb-24" >
+                                                <h1 className='text-[1.3rem] font-bold'>{item.title}</h1>
+                                                <p className="my-2 font-semibold text-[1rem]">{item.brand}</p>
+                                                <p>{item.description}</p>
+                                                <button className="bg-teal-500 px-6 py-2 font-semibold text-white rounded-full absolute -bottom-20  delay-500 duration-1000 hover:scale-105 transition-all group-hover:bottom-10 scale-0 group-hover:scale-125">
                                                     <Link to='page-top' > <NavLink to={`/product/${item.id}`} > View Details </NavLink> </Link>
                                                 </button>
                                             </div>
