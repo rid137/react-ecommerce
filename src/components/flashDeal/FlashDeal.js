@@ -32,7 +32,7 @@ const FlashDeal = () => {
                 <p className="border-b-4 border-red-500 pb-2">Flashdeal</p>
             </div>
             {/* {console.log(dat)} */}
-            <div className="flex flex-wrap gap-x-4 gap-y-6  mt-6">
+            <div className="flex  flex-wrap gap-x-4 gap-y-6  mt-6">
                 {
                     flashDealProduct && 
                         flashDealProduct.map((item) => (

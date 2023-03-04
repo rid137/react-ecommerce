@@ -7,7 +7,7 @@ import HomeNavbar from '../homeNavbar/HomeNavbar';
 
 const MainSection = () => {
   return (
-    <div className=''>
+    <div className='pr-10 md:pr-0'>
         {/* <Navbar /> */}
         <HeroCarousel />
         <FlashDeal />

@@ -70,7 +70,7 @@ const Sidebar = () => {
     <>
     {    console.log('sidebar',category)
 }
-    <div className={`bg-dark-purple z-10 h-[screen] fixed top-0 bottom-0 ${open ? "w-72 pt-8 pl-3 pr-6 overflow-y-scroll scrollbar-thin scrollbar-thumb-rose-500" : "w-12"}  duration-300`}>
+    <div className={`bg-dark-purple z-10 h-[screen] fixed top-0 bottom-0  ${open ? "w-72 pt-8 pl-3 pr-6 overflow-y-scroll scrollbar-thin scrollbar-thumb-rose-500" : "w-12"}  duration-300`}>
 
         <div className={`inline-flex -mt-2 items-center ${!open && " border-light-white -mt-3"}`}>
             <img src={logo} alt="" className={`${!open && "w-10 pl-2 mr-[.2rem]"} cursor-pointer block float-left mr-2`} />
