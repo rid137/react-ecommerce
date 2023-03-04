@@ -21,9 +21,9 @@ const FixedCartBox = () => {
                     <p className="bg-yellow-700 -mt-1 py-1 text-center px-2 rounded-full">{cart.length}</p>
                 </div>
 
-                <div className="flex justify-center -mt-4">
+                <div className="flex justify-center -mt-4 md:-mt-0">
                     <Link to={`/cart`} className='no-underline text-white'>
-                        <button className="bg-yellow-700 pt-1 pb-2 px-3 rounded-sm text-[.5rem] font-sm md:text-md md:font-bold">View Cart</button>
+                        <button className="bg-yellow-700 pt-1 pb-2 px-3 rounded-sm text-[.5rem] font-sm md:text-lg md:font-bold">View Cart</button>
                     </Link>
                 </div>
 
