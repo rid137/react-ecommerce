@@ -73,7 +73,7 @@ const TopCategory = () => {
             {
                 topCategoryFemaleProduct && 
                     topCategoryFemaleProduct.map((item) => (
-                        <div key={item.id} className="relative flex flex-col box-border w-72 h-[30rem] bg-white border border-gray-300 p-2 drop-shadow-lg hover:scale-105 transition-all duration-300">
+                        <div key={item.id} className="relative flex flex-col box-border w-72 h-[30rem] mt-6 md:mt-4 bg-white border border-gray-300 p-2 drop-shadow-lg hover:scale-105 transition-all duration-300">
                             {/* <button className="absolute top-0 left-0 text-xl text-white rounded-sm bg-red-600 px-2 pb-1 ">20% off</button> */}
                             <img src={item.thumbnail} alt="" className="h-1/2 object-cover"/>
                             <div className="h-1/2 text-center pt-3">
@@ -98,7 +98,7 @@ const TopCategory = () => {
             {
                 topCategoryJewelleryProduct && 
                     topCategoryJewelleryProduct.map((item) => (
-                        <div key={item.id} className="relative flex flex-col box-border w-72 h-[30rem] bg-white border border-gray-300 p-2 drop-shadow-lg hover:scale-105 transition-all duration-300">
+                        <div key={item.id} className="relative flex flex-col box-border w-72 h-[30rem] mt-6 md:mt-4 bg-white border border-gray-300 p-2 drop-shadow-lg hover:scale-105 transition-all duration-300">
                             {/* <button className="absolute top-0 left-0 text-xl text-white rounded-sm bg-red-600 px-2 pb-1 ">20% off</button> */}
                             <img src={item.thumbnail} alt="" className="h-1/2 object-cover"/>
                             <div className="h-1/2 text-center pt-3">
