@@ -6,6 +6,9 @@ import Cart from './pages/cart/Cart';
 import Category from './pages/category/Category';
 import Home from './pages/home/Home';
 import SingleProductDetails from './pages/singleProductDetail/SingleProductDetail';
+import PaymentSuccess from './pages/paymentSuccess/PaymentSuccess';
+import PaymentCancel from './pages/paymentCancel/PaymentCancel';
+import "@stripe/stripe-js";
 
 
 function App() {
@@ -19,6 +22,8 @@ function App() {
           <Route path="/product/:id" element={<SingleProductDetails />} />
           <Route path="/category/:id" element={<Category />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/success" element={<PaymentSuccess />} />
+          <Route path="/cancel" element={<PaymentCancel />} />
           {/* <Route path="/login" element={<PaymentPage />} /> */}
         </Routes>
       </ProductContextProvider>

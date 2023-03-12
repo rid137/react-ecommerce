@@ -1,12 +1,12 @@
 import { useContext, useState, useEffect, useRef } from 'react';
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import logo from '../../components/asset/logo.svg';
 import { toast } from 'react-toastify';
 import { Product } from '../../components/context/ProductContext';
-
+import { loadStripe } from '@stripe/stripe-js';
 
 
 const Cart = () => {
@@ -14,6 +14,10 @@ const Cart = () => {
     const [price, setPrice] = useState([])
     const [discount, setDiscount] = useState([])
 
+    const [stripeError, setStripeError] = useState(null)
+    const [isLoading, setIsLoading] = useState(false)
+
+    const navigate= useNavigate()
 
     // const [inputValue, setInputValue] = useState ('')
     // const count = useRef(1)
@@ -57,6 +61,94 @@ const Cart = () => {
        }
     }
 
+    // const checkout = async () => {
+    //     await fetch('http://localhost:4000/checkout', {
+    //         method: "POST",
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({items: cart})
+    //     }).then((response) => {
+    //         return response.json();
+    //     }).then((response) => {
+    //         if(response.url) {
+    //             window.location.assign(response.url);  // Forwarding User To Stripe
+    //         }
+    //     })
+    // }
+
+    // GET STRIPE PROMISE
+    let stripePromise
+
+    const getStripe = () => {
+        if(!stripePromise) {
+            stripePromise = loadStripe("pk_test_51Mk2RoL1nuvFn8UHm1SNCbPLX21s5CuWCgm2V0z7hvoUbf4ClhCZaGCPojqQtUrq0LLMcRdGkp18IQ5ThvIT1Zqw00piCSgJMG");
+        }
+
+        return stripePromise;
+    }
+
+
+    // GET INFO OF THE PRODUCT FOR THE STRIPE
+    let stripeFeature = []
+
+    const getStripeFeatures = () => {
+        cart.forEach((item) => {
+            stripeFeature.push(
+                {
+                    price: item.priceKey,
+                    quantity: item.amount
+                }
+            )
+            console.log(item)
+            console.log(stripeFeature)
+        })
+        return stripeFeature
+    }
+
+    getStripeFeatures()
+    
+    // INFO THAT IS SENT TO STRIPE
+    const checkoutOptions = {
+        lineItems: stripeFeature,
+        mode: "payment",
+        successUrl: `${window.location.origin}/success`,
+        cancelUrl: `${window.location.origin}/cancel`
+    }
+    
+    let x = false
+    // REDIRECT TO STRIPE CHECKOUT
+    const redirectToCheckout = async () => {
+        // if(x === false) 
+        // navigate('/')  
+        // return
+        // else {
+        if(x) {
+            setIsLoading(true)
+        // }
+         //WHEN THE FUNCTION IS BEING CALLED, LOADING IS TRUE
+        console.log('redirectToStripe')
+
+        const stripe = await getStripe()
+        // GET ERROR MESSAGE IF ANY
+        const { error } = await stripe.redirectToCheckout(checkoutOptions)
+        console.log("stripe checkout error", error)
+
+        if(error) {
+            setStripeError(error.message);
+        }
+        setIsLoading(false)
+        }
+
+        else {
+            navigate('/')  
+        }
+    }
+
+    // DISPLAY ERROR MESSAGE IF ANY
+    if(stripeError !== null) {
+        alert(stripeError);
+    };
 
 
   return (
@@ -72,7 +164,7 @@ const Cart = () => {
                     </ul>
                 </div>
                 <div>
-                    <Link to='/login' className='no-underline text-white hover:text-yellow-600' ><button className='bg-yellow-500 px-3  pb-1 text-xl font-bold text-white rounded-sm border border-yellow-600 mt-[.4rem] hover:bg-yellow-600 '> Login </button></Link>
+                    <Link className='no-underline text-white hover:text-yellow-600' ><button className='bg-yellow-500 px-3  pb-1 text-xl font-bold text-white rounded-sm border border-yellow-600 mt-[.4rem] hover:bg-yellow-600 '> Login </button></Link>
                 </div>
             </div>
         </div> 
@@ -152,7 +244,7 @@ const Cart = () => {
                         <p>${totalPayment}</p>
                     </div>
 
-                    <button className="text-2xl text-white border-2 border-slate-300 w-full font-bold px-3 py-1 pb-2 bg-yellow-500 hover:scale-105 transition-all duration-200 rounded-md">CHECKOUT NOW</button>
+                    <button onClick={redirectToCheckout} disabled={isLoading} className="text-xl text-white border-2 border-slate-300 w-full font-bold px-3 py-1 pb-2 bg-yellow-500 hover:scale-105 transition-all duration-200 rounded-md">{isLoading? 'PROCESSING...' : 'CHECKOUT NOW'}</button>
                 </div>
             </div>
 
@@ -183,7 +275,7 @@ const Cart = () => {
                     <p>${totalPayment}</p>
                 </div>
 
-                <button className=" text-lg text-center text-white border-2 border-slate-300 w-[50%] font-bold py-1 bg-yellow-500 hover:scale-105 transition-all duration-200 rounded-md">CHECKOUT NOW</button>
+                <button onClick={redirectToCheckout} disabled={isLoading} className=" text-lg text-center text-white border-2 border-slate-300 w-[50%] font-bold py-1 bg-yellow-500 hover:scale-105 transition-all duration-200 rounded-md">{isLoading? 'PROCESSING...' : 'CHECKOUT NOW'}</button>
             </div>
         </div>
     </div>
