@@ -251,7 +251,7 @@ const Cart = () => {
         </div>   
 
         <div className=" md:hidden mt-6">
-            <div className="w-[85vw] mx-auto flex flex-col space-y-6">
+            <div className="w-[85vw] mx-auto flex flex-col space-y-6 pb-8">
                 <div className="text-2xl pt-1 font-bold border-b-2 border-gray-400">
                     <p>Order Summary</p>
                 </div>
