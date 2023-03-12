@@ -116,7 +116,7 @@ const Cart = () => {
         cancelUrl: `${window.location.origin}/cancel`
     }
     
-    let x = false
+    let x = true
     // REDIRECT TO STRIPE CHECKOUT
     const redirectToCheckout = async () => {
         // if(x === false) 
