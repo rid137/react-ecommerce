@@ -84,7 +84,7 @@ const Sidebar = () => {
             </div>
 
             <ul className=" -ml-8">
-                <li className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer  ${open ? " rounded-md p-2 ": "px-[.6rem] py-[.3rem]"}  hover:bg-light-white`}>
+                <li className={`text-gray-300 text-sm flex items-center gap-y-4 cursor-pointer  ${open ? " rounded-md p-2 ": "px-[.6rem] py-[.3rem]"}  hover:bg-light-white`}>
                     <span className="text-2xl block float-left"><IoFlashSharp /></span>
                     <span className={`text-base font-medium flex-1 duration-200 ${!open && "hidden"}`}>Flash Deal</span>
                 </li>
