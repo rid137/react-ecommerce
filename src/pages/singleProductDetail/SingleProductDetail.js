@@ -101,6 +101,7 @@ const SingleProductDetails = () => {
 
             <div className="my-12">
                 <h2 name='related' className='text-white font-bold mb-3 text-center mx-8 md:text-left md:mx-0'>Related Products</h2>
+                <h5 name='related' className='text-white font-bold mb-3 text-center mx-8 md:text-left md:mx-0'>Hover over the products for more details</h5>
                 <div className="flex flex-col items-center md:flex-row md:flex-wrap">
                     {
                         relatedProduct && 
