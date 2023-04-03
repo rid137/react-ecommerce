@@ -88,7 +88,7 @@ const Sidebar = () => {
                     <span className="text-2xl block float-left"><IoFlashSharp /></span>
                     <span className={`text-base font-medium flex-1 duration-200 ${!open && "hidden"}`}>Flash Deal</span>
                 </li>
-                <li className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer  ${open ? " rounded-md p-2 ": "px-[.6rem] py-[.3rem]"} mt-2 hover:bg-light-white`}>
+                <li className={`text-gray-300 text-sm flex items-center space-x-4 cursor-pointer  ${open ? " rounded-md p-2 ": "px-[.6rem] py-[.3rem]"} mt-2 hover:bg-light-white`}>
                     <span className="text-2xl block float-left"><AiFillCopyrightCircle /></span>
                     <span className={`text-base font-medium flex-1 duration-200 ${!open && "hidden"}`}>Top Category</span>
                 </li>
@@ -97,7 +97,7 @@ const Sidebar = () => {
 
             <ul className="-ml-8">
                 
-                <li className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer  ${open ? " rounded-md p-2 ": "px-[.6rem] py-[.3rem]"} mt-2 hover:bg-light-white`} onClick={() => setShowProgramsSubmenu(!showProgramsSubmenu)}>
+                <li className={`text-gray-300 text-sm flex items-center space-x-4 cursor-pointer  ${open ? " rounded-md p-2 ": "px-[.6rem] py-[.3rem]"} mt-2 hover:bg-light-white`} onClick={() => setShowProgramsSubmenu(!showProgramsSubmenu)}>
                     <span className="text-2xl block float-left"><SiProgress /></span>
                     <span className={`text-base font-medium flex-1 duration-200 ${!open && "hidden"}`}>Programs & Features</span>
                     <AiOutlineDown className={`text-md duration-200 ${showProgramsSubmenu && "rotate-180"} ${!open && "hidden"}`} />
@@ -268,7 +268,7 @@ const Sidebar = () => {
             
 
             <ul className="-ml-8">
-                <li className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer  ${open ? " rounded-md p-2 ": "px-[.6rem] py-[.3rem]"} mt-2 hover:bg-light-white`} onClick={() => setShowSettingsSubmenu(!showSettingsSubmenu)}>
+                <li className={`text-gray-300 text-sm flex items-center space-x-4 cursor-pointer  ${open ? " rounded-md p-2 ": "px-[.6rem] py-[.3rem]"} mt-2 hover:bg-light-white`} onClick={() => setShowSettingsSubmenu(!showSettingsSubmenu)}>
                     <span className="text-2xl block float-left"><IoSettings /></span>
                     <span className={`text-base font-medium flex-1 duration-200 ${!open && "hidden"}`}>Settings</span>
                     <AiOutlineDown className={`text-md duration-200 ${showSettingsSubmenu && "rotate-180"} ${!open && "hidden"}`} />
@@ -280,7 +280,7 @@ const Sidebar = () => {
                     <h1 className="text-base font-medium cursor-pointer py-2 px-1 -mt-2  rounded-md  hover:bg-light-white">Sign Out</h1>
                 </div>
 
-                <li className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer  ${open ? " rounded-md p-2 ": "px-[.6rem] py-[.3rem]"} mt-2 hover:bg-light-white`} onClick={() => setShowHelpSubmenu(!showHelpSubmenu)}>
+                <li className={`text-gray-300 text-sm flex items-center space-x-4 cursor-pointer  ${open ? " rounded-md p-2 ": "px-[.6rem] py-[.3rem]"} mt-2 hover:bg-light-white`} onClick={() => setShowHelpSubmenu(!showHelpSubmenu)}>
                     <span className="text-2xl block float-left"><MdHelp /></span>
                     <span className={`text-base font-medium flex-1 duration-200 ${!open && "hidden"}`}>Help</span>
                     <AiOutlineDown className={`text-md duration-200 ${showHelpSubmenu && "rotate-180"} ${!open && "hidden"}`} />
