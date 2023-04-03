@@ -111,7 +111,7 @@ const Sidebar = () => {
                     <h1 className="text-base font-medium cursor-pointer py-2 px-1 -mt-2 rounded-md  hover:bg-light-white">International Shopping</h1>
                 </div>
 
-                <li className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer  ${open ? " rounded-md p-2 ": "px-[.6rem] py-[.3rem]"} mt-2 hover:bg-light-white`} onClick={() => setShowCategorySubmenu(!showCategorySubmenu)}>
+                <li className={`text-gray-300 text-sm flex items-center space-x-4 cursor-pointer  ${open ? " rounded-md p-2 ": "px-[.6rem] py-[.3rem]"} mt-2 hover:bg-light-white`} onClick={() => setShowCategorySubmenu(!showCategorySubmenu)}>
                     <span className="text-2xl block float-left"><BiCategoryAlt /></span>
                     <span className={`text-base font-medium flex-1 duration-200 ${!open && "hidden"}`}>Product Category</span>
                     <AiOutlineDown className={`text-md duration-200 ${showCategorySubmenu && "rotate-180"} ${!open && "hidden"}`} />
