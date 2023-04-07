@@ -1,6 +1,6 @@
 .cards-container {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     gap: 50px;
     flex-wrap: wrap;
@@ -10,7 +10,7 @@
 
 .cards {
     position: relative;
-    width: 300px;
+    width: 330px;
     height: 400px;
     background: #fff;
     transform-style: preserve-3d;

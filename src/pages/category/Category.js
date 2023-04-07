@@ -42,15 +42,15 @@ const Category = () => {
 
     
   return (
-    <div>
+    <div className='bg-[#fbe9e7]'>
         <ReusableNavbar />
         <div className="h-[1.7rem] bg-[#fbe9e7] text-xl font-bold">
             <marquee behavior="" direction="">Hover over the products to see details</marquee>
         </div>
-        <div className="h-[2.7rem] bg-[#fbe9e7] pt-2">
+        <div className="h-[2.7rem] bg-[#fbe9e7] pt-2 container">
             <h2 className='font-bold ml-2 text-xl md:text-3xl'>Products Category: { id }</h2>
         </div>
-        <div className="cards-container">
+        <div className="cards-container container bg-[#fbe9e7]">
             
         {
             catProducts && catProducts.map((item) => (
