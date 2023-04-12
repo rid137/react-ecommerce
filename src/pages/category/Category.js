@@ -43,7 +43,9 @@ const Category = () => {
     
   return (
     <div className='bg-[#fbe9e7]'>
-        <ReusableNavbar />
+
+        <ReusableNavbar itemOne='Home' itemTwo='Continue Shopping' itemThree='Cart' itemFour='Login' />
+
         <div className="h-[1.7rem] bg-[#fbe9e7] text-xl font-bold">
             <marquee behavior="" direction="">Hover over the products to see details</marquee>
         </div>
