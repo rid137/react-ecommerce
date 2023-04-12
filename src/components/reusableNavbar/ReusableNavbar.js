@@ -8,7 +8,7 @@ import { FaTimes } from "react-icons/fa";
 
 
 
-const ReusableNavbar = () => {
+const ReusableNavbar = ({itemOne, itemTwo, itemThree, itemFour}) => {
     const [openNav, setOpenNav] = useState(false)
 
 
@@ -21,14 +21,21 @@ const ReusableNavbar = () => {
                 </div>
                 <div className='hidden md:block'>
                     <ul className='flex my-auto text-[1rem] text-white font-bold text-center'>
-                        <li className=' md:mr-10 cursor-pointer'><NavLink className="no-underline text-inherit hover:text-gray-200 " to="/">Home</NavLink></li>
-                        <li className=' md:mr-10 cursor-pointer'><Link className="no-underline text-inherit hover:text-gray-200"  to="version" smooth={true}  duration={200}>Product Images</Link></li>
-                        <li className=' md:mr-10 cursor-pointer'><Link className="no-underline text-inherit hover:text-gray-200"  to="related" smooth={true}  duration={300}>Related Products</Link></li>
-                        <li className=' md:mr-10 cursor-pointer'><NavLink className="no-underline text-inherit hover:text-gray-200"  to="/cart" >Cart</NavLink></li>
+                        <li className=' md:mr-10 cursor-pointer'><NavLink className="no-underline text-inherit hover:text-gray-200 " to="/"> {`${itemOne}`} </NavLink></li>
+                        <li className=' md:mr-10 cursor-pointer'><NavLink className="no-underline text-inherit hover:text-gray-200 " to="/"> {`${itemTwo}`} </NavLink></li>
+                        {
+                            itemThree === 'Cart' && (
+                                <>
+                                    <li className=' md:mr-10 cursor-pointer'><NavLink className="no-underline text-inherit hover:text-gray-200 " to="/cart"> {`${itemThree}`} </NavLink></li>
+                                </>
+                            )
+                        }
+                        {/* <li className=' md:mr-10 cursor-pointer'><Link className="no-underline text-inherit hover:text-gray-200"  to="related" smooth={true}  duration={300}>Related Products</Link></li> */}
+                        {/* <li className=' md:mr-10 cursor-pointer'><NavLink className="no-underline text-inherit hover:text-gray-200"  to="/cart" >Cart</NavLink></li> */}
                     </ul>
                 </div>
                 <div>
-                    <button className='bg-yellow-500 px-3 pb-1  text-lg font-bold text-white rounded-sm border border-yellow-600 hover:bg-yellow-600 hover:text-yellow-600 md:mt-[.4rem] hidden md:block'>Login</button>
+                    <button className='bg-yellow-500 px-3 pb-1  text-lg font-bold text-white rounded-sm border border-yellow-600 hover:bg-yellow-600 hover:text-yellow-600 md:mt-[.4rem] hidden md:block'> <NavLink to='/logNreg' className='text-inherit no-underline hover:text-inherit'>Login</NavLink> </button>
                 </div>
                 <div className='md:hidden'>
                     {
@@ -46,19 +53,25 @@ const ReusableNavbar = () => {
         <div className={`bg-yellow-500 md:hidden   ${openNav ? "block " : "h-0 w-0 hidden "}  duration-200`}>
             {/* <BreadCrumb className='text-white'/> */}
             <ul className="flex flex-col container mx-auto py-8 space-y-2 text-sm font-bold text-white">
-                <li className=' cursor-pointer   hover:text-gray-300'><NavLink className="no-underline text-inherit hover:text-gray-200 block" to="/" onClick={() => setOpenNav(!openNav)} >Home</NavLink></li>
+                <li className=' cursor-pointer   hover:text-gray-300'><NavLink className="no-underline text-inherit hover:text-gray-200 block" to="/" onClick={() => setOpenNav(!openNav)} > {`${itemOne}`} </NavLink></li>
 
                 {/* <li className='cursor-pointer   hover:text-gray-300'>Home</li> */}
                 <li className="w-full h-[.5px] bg-white"></li>
 
-                <li className=' cursor-pointer   hover:text-gray-300'><Link className="no-underline text-inherit hover:text-gray-200 block" to="version" smooth={true} offset={-300}  duration={500} onClick={() => setOpenNav(!openNav)} >Product Images</Link></li>
+                <li className=' cursor-pointer   hover:text-gray-300'><NavLink className="no-underline text-inherit hover:text-gray-200 block" to="/" onClick={() => setOpenNav(!openNav)} > {`${itemTwo}`} </NavLink></li>
                 <li className="w-full h-[.5px] bg-white"></li>
 
-                <li className=' cursor-pointer   hover:text-gray-300'><Link className="no-underline text-inherit hover:text-gray-200 block" to="related" smooth={true} offset={-300}  duration={500} onClick={() => setOpenNav(!openNav)} >Related Products</Link></li>
+                <li className=' cursor-pointer   hover:text-gray-300'><NavLink className="no-underline text-inherit hover:text-gray-200 block" to={itemThree === 'Login' ? '/logNreg' : '/cart'} onClick={() => setOpenNav(!openNav)} > {`${itemThree}`} </NavLink></li>
                 <li className="w-full h-[.5px] bg-white"></li>
 
-                <li className=' cursor-pointer   hover:text-gray-300'><NavLink className="no-underline text-inherit hover:text-gray-200 block" to="/cart" onClick={() => setOpenNav(!openNav)} >Cart</NavLink></li>
-                <li className="w-full h-[.5px] mb-2 bg-white"></li>
+                {
+                    itemFour !== undefined &&   (
+                        <>
+                            <li className=' cursor-pointer   hover:text-gray-300'><NavLink className="no-underline text-inherit hover:text-gray-200 block" to="/logNreg" onClick={() => setOpenNav(!openNav)} > {`${itemFour}`} </NavLink></li>
+                            <li className="w-full h-[.5px] mb-2 bg-white"></li>
+                        </>
+                    )
+                }
 
 
                 {/* <label class="block"> */}
