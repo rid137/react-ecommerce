@@ -9,6 +9,7 @@ import SingleProductDetails from './pages/singleProductDetail/SingleProductDetai
 import PaymentSuccess from './pages/paymentSuccess/PaymentSuccess';
 import PaymentCancel from './pages/paymentCancel/PaymentCancel';
 import "@stripe/stripe-js";
+import LogNReg from './pages/logNreg/LogNReg';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/success" element={<PaymentSuccess />} />
           <Route path="/cancel" element={<PaymentCancel />} />
-          {/* <Route path="/login" element={<PaymentPage />} /> */}
+          <Route path="/logNreg" element={<LogNReg />} />
         </Routes>
       </ProductContextProvider>
     </BrowserRouter>

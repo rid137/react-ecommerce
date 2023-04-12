@@ -4,6 +4,7 @@ import { MdDelete } from "react-icons/md";
 import { Link, useNavigate } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import logo from '../../components/asset/logo.svg';
+import ReusableNavbar from '../../components/reusableNavbar/ReusableNavbar';
 import { toast } from 'react-toastify';
 import { Product } from '../../components/context/ProductContext';
 import { loadStripe } from '@stripe/stripe-js';
@@ -16,6 +17,7 @@ const Cart = () => {
 
     const [stripeError, setStripeError] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
+    const [checkOutErrMsg, setCheckOutErrMsg] = useState(false)
 
     const navigate= useNavigate()
 
@@ -123,7 +125,7 @@ const Cart = () => {
         // navigate('/')  
         // return
         // else {
-        if(x) {
+        if(!x) {
             setIsLoading(true)
         // }
          //WHEN THE FUNCTION IS BEING CALLED, LOADING IS TRUE
@@ -141,7 +143,8 @@ const Cart = () => {
         }
 
         else {
-            navigate('/')  
+            setCheckOutErrMsg(true)
+            // navigate('/')  
         }
     }
 
@@ -153,7 +156,7 @@ const Cart = () => {
 
   return (
     <div className='bg-slate-200 md:w-screen   md:h-screen' >
-        <div className="bg-yellow-500 h-12">
+        {/* <div className="bg-yellow-500 h-12">
             <div className=" flex items-center justify-between container mx-auto">
                 <div className='flex items-center cursor-pointer'>
                     <img src={logo} className=' w-2/3 mt-1' alt="" />
@@ -164,10 +167,11 @@ const Cart = () => {
                     </ul>
                 </div>
                 <div>
-                    <Link className='no-underline text-white hover:text-yellow-600' ><button className='bg-yellow-500 px-3  pb-1 text-xl font-bold text-white rounded-sm border border-yellow-600 mt-[.4rem] hover:bg-yellow-600 '> Login </button></Link>
+                    <Link to='/logNreg' className='no-underline text-white hover:text-yellow-600' ><button className='bg-yellow-500 px-3  pb-1 text-xl font-bold text-white rounded-sm border border-yellow-600 mt-[.4rem] hover:bg-yellow-600 '> Login </button></Link>
                 </div>
             </div>
-        </div> 
+        </div>  */}
+        <ReusableNavbar itemOne='Home' itemTwo='Continue Shopping' itemThree='Login' />
 
         <div className="flex flex-col md:flex-row mx-auto mt-10 w-[90vw] h-[80vh] bg-white md:shadow-xl">
             <div className='md:w-9/12 p-7 overflow-y-scroll scrollbar-thin scrollbar-thumb-yellow-500 scrollbar-track-slate-700'>
@@ -194,10 +198,10 @@ const Cart = () => {
                                         <tr >
                                         <td className='flex items-center ' >
                                             <div>
-                                                <img src={item.thumbnail} className='w-32 h-24 object-cover' alt="" />
+                                                <img src={item.thumbnail} className='md:w-32 w-24 h-24 object-cover' alt="" />
                                             </div>
                                             <div className='flex flex-col items-start ml-4 md:mb-6'>
-                                                <p className='text-lg font-bold'>{item.title}</p>
+                                                <p className='md:text-lg text-sm font-bold'>{item.title}</p>
                                                 <p className='bg-yellow-500 font-bold text-white px-2'>{item.brand}</p>
                                             </div>
                                         </td>
@@ -219,6 +223,7 @@ const Cart = () => {
 
             </div>
 
+            {/* Large Device Order Summary Table */}
             <div className='hidden md:block md:w-3/12 p-4 w-full h-[50vh] md:h-full -mr-10 bg-gray-200'>
                 <div className="flex flex-col space-y-6">
                     <div className="text-2xl pt-1 font-bold border-b-2 border-gray-400">
@@ -244,12 +249,19 @@ const Cart = () => {
                         <p>${totalPayment}</p>
                     </div>
 
-                    <button onClick={redirectToCheckout} disabled={isLoading} className="text-xl text-white border-2 border-slate-300 w-full font-bold px-3 py-1 pb-2 bg-yellow-500 hover:scale-105 transition-all duration-200 rounded-md">{isLoading? 'PROCESSING...' : 'CHECKOUT NOW'}</button>
+                    <button onClick={redirectToCheckout} disabled={isLoading} className="text-[1rem] text-white border-2 border-slate-300 w-full font-bold px-3 py-1 pb-1 bg-yellow-500 hover:scale-105 transition-all duration-200 rounded-md">{isLoading? 'PROCESSING...' : 'CHECKOUT NOW'}</button>
+
+                    {
+                        checkOutErrMsg && (
+                            <p className='text-red-700 font-bold'>You need to login to your account before you can place an order</p>
+                        )
+                    }
                 </div>
             </div>
 
         </div>   
-
+        
+        {/* Small Device Order Summary Table */}
         <div className=" md:hidden mt-6">
             <div className="w-[85vw] mx-auto flex flex-col space-y-6 pb-8">
                 <div className="text-2xl pt-1 font-bold border-b-2 border-gray-400">
@@ -276,6 +288,13 @@ const Cart = () => {
                 </div>
 
                 <button onClick={redirectToCheckout} disabled={isLoading} className=" text-lg text-center text-white border-2 border-slate-300 w-[50%] font-bold py-1 bg-yellow-500 hover:scale-105 transition-all duration-200 rounded-md">{isLoading? 'PROCESSING...' : 'CHECKOUT NOW'}</button>
+
+                {
+                    checkOutErrMsg && (
+                        <p className='text-red-700 font-bold'>You need to login to your account before you can place an order</p>
+                    )
+                }
+
             </div>
         </div>
     </div>
