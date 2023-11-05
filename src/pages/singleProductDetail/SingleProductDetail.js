@@ -7,6 +7,7 @@ import {  Link, animateScroll as scroll } from 'react-scroll'
 import logo from '../../components/asset/logo.svg';
 import axios from 'axios'
 import ReusableNavbar from '../../components/reusableNavbar/ReusableNavbar';
+import SingleProductPageNavbar from '../../components/singleProductPageNavbar/SingleProductPageNavbar';
 
 const SingleProductDetails = () => {
     const [product, setproduct] = useState([])
@@ -43,7 +44,7 @@ const SingleProductDetails = () => {
 
   return (
     <div className='bg-slate-500 scrollbar-thin scrollbar-thumb-teal-500 scrollbar-track-slate-700 '>
-        <ReusableNavbar />
+        <SingleProductPageNavbar />
         <div className="container mx-auto md:mt-4">
         
             <div className="w-full flex flex-col md:space-x-0 items-center justify-center md:flex-row">

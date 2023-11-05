@@ -7,10 +7,13 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaTimes } from "react-icons/fa";
 import pexelpassport2 from '../../components/asset/pexelpassport2.jpg'
 import pexelpassport from '../../components/asset/pexelpassport.jpg'
+import { UserAuth } from '../../components/context/AuthContext';
 
 
 const Category = () => {
     const [catProducts, setCatProducts] = useState([])
+
+    const { user, logOut } = UserAuth();
     
     const { id } = useParams()
 
@@ -44,7 +47,7 @@ const Category = () => {
   return (
     <div className='bg-[#fbe9e7]'>
 
-        <ReusableNavbar itemOne='Home' itemTwo='Continue Shopping' itemThree='Cart' itemFour='Login' />
+        <ReusableNavbar itemOne='Home' itemTwo='Continue Shopping' itemThree='Login' itemFour='Cart' />
 
         <div className="h-[1.7rem] bg-[#fbe9e7] text-xl font-bold">
             <marquee behavior="" direction="">Hover over the products to see details</marquee>

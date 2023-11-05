@@ -8,6 +8,7 @@ import ReusableNavbar from '../../components/reusableNavbar/ReusableNavbar';
 import { toast } from 'react-toastify';
 import { Product } from '../../components/context/ProductContext';
 import { loadStripe } from '@stripe/stripe-js';
+import { UserAuth } from '../../components/context/AuthContext';
 
 
 const Cart = () => {
@@ -20,6 +21,8 @@ const Cart = () => {
     const [checkOutErrMsg, setCheckOutErrMsg] = useState(false)
 
     const navigate= useNavigate()
+
+    const { user, logOut } = UserAuth();
 
     // const [inputValue, setInputValue] = useState ('')
     // const count = useRef(1)
@@ -102,7 +105,7 @@ const Cart = () => {
                     quantity: item.amount
                 }
             )
-            console.log(item)
+            // console.log(item)
             console.log(stripeFeature)
         })
         return stripeFeature
@@ -125,7 +128,7 @@ const Cart = () => {
         // navigate('/')  
         // return
         // else {
-        if(!x) {
+        if(user !== null) {
             setIsLoading(true)
         // }
          //WHEN THE FUNCTION IS BEING CALLED, LOADING IS TRUE
