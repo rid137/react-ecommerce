@@ -4,6 +4,7 @@ import { BsFillCartCheckFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import { Product } from '../context/ProductContext';
 import axios from 'axios';
+import { UserAuth } from '../context/AuthContext';
 
 const Navbar = () => {
   const [data, setData] = useState(false)
@@ -53,6 +54,20 @@ const Navbar = () => {
     }
   }
 
+  const { user, logOut } = UserAuth();
+
+  const handleSignOut = async () => {
+    try {
+        if(window.confirm('Are you sure you want to log out?')) {
+            await logOut();
+            console.log('Logout')
+        };
+    }
+    catch(error) {
+        console.log(error)
+    };
+  };
+
   // if (event.key === 'Enter') {
   //   setData(true)
   //   setSearch('')
@@ -78,7 +93,7 @@ const Navbar = () => {
             <div className="flex justify-between items-center h-full mx-[4.3rem]">
               <ul className='flex  space-x-1  font-bold text-[0.9rem] h-full'>
                 <li className=' bg-light-white cursor-pointer h-full px-3 pt-[.36rem] mt-2'>Home</li>
-                <li className=' hover:bg-light-white cursor-pointer h-full px-3 pt-[.36rem] mt-2'>Contact</li>
+                <li className=' hover:bg-light-white cursor-pointer h-full px-3 pt-[.36rem] mt-2'>About</li>
                 <li className=' hover:bg-light-white cursor-pointer h-full px-3 pt-[.36rem] mt-2'>Contact</li>
 
               </ul>
@@ -117,7 +132,7 @@ const Navbar = () => {
                 }
               </div>
               <div className="-mr-[1.2rem]">
-                <button className='bg-black px-4 pb-1 font-bold text-[0.9rem] rounded-full border-2 border-light-white hover:scale-x-110 duration-200'>Login</button>
+                <button onClick={user && handleSignOut} className='bg-black px-4 pb-1 font-bold text-[0.9rem] rounded-full border-2 border-light-white hover:scale-x-110 duration-200'> <Link to={!user && '/logNreg'} className='text-inherit no-underline hover:text-inherit'> {user ? 'Logout' : 'Login'} </Link> </button>
                 
               </div>
             </div>

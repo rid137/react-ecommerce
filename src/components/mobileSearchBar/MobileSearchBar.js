@@ -24,7 +24,7 @@ const MobileSearchBar = () => {
 
 
   return (
-    <div className="mt-6 md:hidden sticky top-0">
+    <div className="mt-6 md:hidden sticky top-0 z-10">
         <input 
             type="search" 
             value={search}

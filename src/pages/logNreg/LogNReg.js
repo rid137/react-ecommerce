@@ -7,7 +7,7 @@ import Login from '../login/Login';
 // import ProductDetails from '../productDetails/ProductDetails';
 import Register from '../register/Register';
 
-function LogNReg({setToken}) {
+function LogNReg() {
   return (
     <Tabs
       defaultActiveKey="profile"
@@ -15,11 +15,11 @@ function LogNReg({setToken}) {
       className="mb-2 mx-7 md:mx-[28.6rem] bg-gray-200"
       justify
     >
-      <Tab eventKey="home" title="Login" className=''>
-        <Login setToken={setToken}/>
-      </Tab>
-      <Tab eventKey="profile" title="Register">
+      <Tab eventKey="home" title="Register" className=''>
         <Register />
+      </Tab>
+      <Tab eventKey="profile" title="Login">
+        <Login />
       </Tab>
       {/* <Tab eventKey="longer-tab" title="Loooonger Tab">
         <Login />
